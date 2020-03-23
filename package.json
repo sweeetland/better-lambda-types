@@ -1,0 +1,58 @@
+{
+    "name": "better-lambda-types",
+    "version": "0.0.0",
+    "description": "Customisable AWS Lambda TypeScript types -> useful with (or without) lambda-hooks",
+    "main": "dist",
+    "types": "dist",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "test": "echo \"No test specified\"",
+        "lint": "./node_modules/.bin/eslint \"src/**\"",
+        "release": "np",
+        "build": "rm -rf dist && tsc",
+        "prepare": "npm run build"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "tsc && lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.ts": [
+            "npm run lint"
+        ]
+    },
+    "keywords": [
+        "lambda",
+        "hooks",
+        "middleware",
+        "serverless",
+        "AWS",
+        "AWS Lambda",
+        "API Gateway",
+        "types",
+        "typescript"
+    ],
+    "author": "James Sweetland",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sweeetland/better-lambda-types.git"
+    },
+    "devDependencies": {
+        "@types/aws-lambda": "^8.10.46",
+        "@types/node": "^13.9.0",
+        "@typescript-eslint/eslint-plugin": "^2.22.0",
+        "@typescript-eslint/parser": "^2.22.0",
+        "aws-lambda": "^1.0.5",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "husky": "^4.2.3",
+        "lint-staged": "^10.0.8",
+        "prettier": "^1.19.1",
+        "typescript": "^3.8.3"
+    }
+}

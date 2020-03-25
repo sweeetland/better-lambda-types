@@ -7,10 +7,10 @@ type Obj = { [k: string]: any }
 type ObjWithStringValues = { [k: string]: string }
 
 export interface APIGatewayProxyEvent<
-    Body extends Obj,
-    PathParameters extends ObjWithStringValues,
-    QueryStringParameters extends ObjWithStringValues,
-    MultiValueQueryStringParameters extends ObjWithStringValues
+    Body extends Obj = {},
+    PathParameters extends ObjWithStringValues = {},
+    QueryStringParameters extends ObjWithStringValues = {},
+    MultiValueQueryStringParameters extends ObjWithStringValues = {}
 >
     extends Omit<
         AWSEvent,
@@ -23,7 +23,7 @@ export interface APIGatewayProxyEvent<
 }
 
 export type APIGatewayProxyHandler<
-    Body extends Obj,
+    Body extends Obj = {},
     PathParameters extends ObjWithStringValues = {},
     QueryStringParameters extends ObjWithStringValues = {},
     MultiValueQueryStringParameters extends ObjWithStringValues = {}

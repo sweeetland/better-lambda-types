@@ -1,6 +1,6 @@
 {
     "name": "better-lambda-types",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Customisable AWS Lambda TypeScript types -> useful with (or without) lambda-hooks",
     "main": "dist",
     "types": "dist",

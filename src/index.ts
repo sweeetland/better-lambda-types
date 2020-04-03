@@ -4,13 +4,15 @@ export { Context } from 'aws-lambda'
 
 type Obj = { [k: string]: any }
 
-type ObjWithStringValues = { [k: string]: string }
+type ObjWithStringValues = { [k: string]: string | undefined }
+
+type ObjWithStringArrayValues = { [k: string]: string[] | undefined }
 
 export interface APIGatewayProxyEvent<
     Body extends Obj = {},
     PathParameters extends ObjWithStringValues = {},
     QueryStringParameters extends ObjWithStringValues = {},
-    MultiValueQueryStringParameters extends ObjWithStringValues = {}
+    MultiValueQueryStringParameters extends ObjWithStringArrayValues = {}
 >
     extends Omit<
         AWSEvent,
@@ -26,7 +28,7 @@ export type APIGatewayProxyHandler<
     Body extends Obj = {},
     PathParameters extends ObjWithStringValues = {},
     QueryStringParameters extends ObjWithStringValues = {},
-    MultiValueQueryStringParameters extends ObjWithStringValues = {}
+    MultiValueQueryStringParameters extends ObjWithStringArrayValues = {}
 > = Handler<
     APIGatewayProxyEvent<
         Body,
